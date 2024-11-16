@@ -1,0 +1,1 @@
+## SHACL validation of IADOPT variables

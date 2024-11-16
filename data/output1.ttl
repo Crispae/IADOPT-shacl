@@ -1,0 +1,32 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ns1: <https://w3id.org/iadopt/ont/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example-variable.org/ex/2> a skos:Concept,
+        ns1:Variable ;
+    dc:created "2024-09-22"^^xsd:date ;
+    dc:creator <https://orcid.org/0000-0003-0593-2598> ;
+    dc:description "Temperature of the air in a height of 1.7 meter, daily maximum" ;
+    skos:prefLabel "Air daily maximum temperature" ;
+    ns1:hasConstraint <http://www.ontology-of-units-of-measure.org/resource/om-2/Height> ;
+    ns1:hasContextObject <http://purl.obolibrary.org/obo/ECOSIM_TAMX> ;
+    ns1:hasObjectOfInterest <http://purl.obolibrary.org/obo/ENVO_00002005> ;
+    ns1:hasProperty <http://ecoinformatics.org/oboe/oboe.1.2/oboe-characteristics.owl#Temperature> .
+
+<http://ecoinformatics.org/oboe/oboe.1.2/oboe-characteristics.owl#Temperature> a skos:Concept,
+        ns1:Property ;
+    skos:prefLabel "Temperature " .
+
+<http://purl.obolibrary.org/obo/ECOSIM_TAMX> a skos:Concept,
+        ns1:Entity ;
+    skos:prefLabel "daily maximum air temperature" .
+
+<http://www.ontology-of-units-of-measure.org/resource/om-2/Height> a ns1:Constraint ;
+    skos:prefLabel "height" ;
+    ns1:constrains <http://purl.obolibrary.org/obo/ENVO_00002005> .
+
+<http://purl.obolibrary.org/obo/ENVO_00002005> a skos:Concept,
+        ns1:Entity ;
+    skos:prefLabel "air" .
+
