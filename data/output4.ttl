@@ -1,0 +1,31 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ns1: <https://w3id.org/iadopt/ont/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example-variable.org/ex/5> a skos:Concept,
+        ns1:Variable ;
+    dc:created "2024-09-22"^^xsd:date ;
+    dc:creator <https://orcid.org/0000-0003-0593-2598> ;
+    skos:prefLabel "Atmosphere_optical_thickness_due_to_particulate_organic_matter_ambient_aerosol" ;
+    ns1:hasContextObject <http://www.example.org/path_of_radition> ;
+    ns1:hasMatrix <http://purl.bioontology.org/ontology/SNOMEDCT/304607008> ;
+    ns1:hasObjectOfInterest <http://purl.bioontology.org/ontology/SNOMEDCT/64242006> ;
+    ns1:hasProperty <http://sweetontology.net/propSpaceThickness/OpticalThickness> .
+
+<http://purl.bioontology.org/ontology/SNOMEDCT/304607008> a skos:Concept,
+        ns1:Entity ;
+    skos:prefLabel "Atmosphere" .
+
+<http://purl.bioontology.org/ontology/SNOMEDCT/64242006> a skos:Concept,
+        ns1:Entity ;
+    skos:prefLabel "Aerosol" .
+
+<http://sweetontology.net/propSpaceThickness/OpticalThickness> a skos:Concept,
+        ns1:Property ;
+    skos:prefLabel "Optical Thickness" .
+
+<http://www.example.org/path_of_radition> a skos:Concept,
+        ns1:Entity ;
+    skos:prefLabel "Path of Radiation" .
+

@@ -2,86 +2,96 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix ex: <https://w3id.org/iadopt/ont/> .
+@prefix iadopt: <https://w3id.org/iadopt/ont/> .
 
 # VariableSet Shape
-ex:VariableSetShape
+iadopt:VariableSetShape
     a sh:NodeShape ;
-    sh:targetClass ex:VariableSet ;
+    sh:targetClass iadopt:VariableSet ;
+    
     sh:property [
-        sh:path ex:hasApplicableObjectOfInterest ;
-        sh:class ex:Entity ;
+        sh:path iadopt:hasApplicableObjectOfInterest ;
+        sh:class iadopt:Entity ;
         sh:minCount 0 ;
     ] ;
+
     sh:property [
-        sh:path ex:hasApplicableMatrix ;
-        sh:class ex:Entity ;
+        sh:path iadopt:hasApplicableMatrix ;
+        sh:class iadopt:Entity ;
         sh:minCount 0 ;
     ] ;
+
     sh:property [
-        sh:path ex:hasApplicableContextObject ;
-        sh:class ex:Entity ;
+        sh:path iadopt:hasApplicableContextObject ;
+        sh:class iadopt:Entity ;
         sh:minCount 0 ;
     ] ;
+
     sh:property [
-        sh:path ex:hasApplicableProperty ;
-        sh:class ex:Property ;
+        sh:path iadopt:hasApplicableProperty ;
+        sh:class iadopt:Property ;
         sh:minCount 0 ;
     ] ;
+
     sh:property [
-        sh:path ex:hasMember ;
-        sh:class ex:Variable ;
+        sh:path iadopt:hasMember ;
+        sh:class iadopt:Variable ;
         sh:minCount 0 ;
     ] .
 
 # Entity Shape
-ex:EntityShape
+iadopt:EntityShape
     a sh:NodeShape ;
-    sh:targetClass ex:Entity ;
-    sh:property [
-        sh:path ex:hasObjectOfInterest ;
-        sh:class ex:Variable ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-    ] ;
-    sh:property [
-        sh:path ex:hasMatrix ;
-        sh:class ex:Variable ;
-        sh:maxCount 1 ;
-    ] ;
-    sh:property [
-        sh:path ex:hasContextObject ;
-        sh:class ex:Variable ;
-        sh:minCount 0 ;
-    ] ;
-    sh:property [
-        sh:path ex:constrains ;
-        sh:class ex:Constraint ;
-        sh:minCount 0 ;
-    ] .
+    sh:targetClass iadopt:Entity .
 
 # Variable Shape
-ex:VariableShape
+iadopt:VariableShape
     a sh:NodeShape ;
-    sh:targetClass ex:Variable ;
+    sh:targetClass iadopt:Variable ;
+
     sh:property [
-        sh:path ex:hasProperty ;
-        sh:class ex:Property ;
+        sh:path iadopt:hasProperty ;
+        sh:class iadopt:Property ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path iadopt:hasConstraint ;
+        sh:class iadopt:Constraint ;
+        sh:minCount 0 ;
+    ] ;
+
+    sh:property [
+        sh:path iadopt:hasObjectOfInterest ;
+        sh:class iadopt:Entity ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
-        sh:path ex:hasConstraint ;
-        sh:class ex:Constraint ;
+        sh:path iadopt:hasMatrix ;
+        sh:class iadopt:Entity ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path iadopt:hasContextObject ;
+        sh:class iadopt:Entity ;
         sh:minCount 0 ;
     ] .
 
+
 # Property Shape
-ex:PropertyShape
+iadopt:PropertyShape
     a sh:NodeShape ;
-    sh:targetClass ex:Property .
+    sh:targetClass iadopt:Property .
 
 # Constraint Shape
-ex:ConstraintShape
+iadopt:ConstraintShape
     a sh:NodeShape ;
-    sh:targetClass ex:Constraint .
+    sh:targetClass iadopt:Constraint ;
+
+    sh:property [
+        sh:path iadopt:constrains ;
+        sh:class iadopt:Entity ;
+        sh:minCount 1 ;
+    ] .

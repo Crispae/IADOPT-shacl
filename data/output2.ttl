@@ -1,0 +1,26 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix iadopt: <https://w3id.org/iadopt/ont/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example-variable.org/ex/3> a skos:Concept,iadopt:Variable ;
+    dc:created "2024-09-22"^^xsd:date ;
+    dc:creator <https://orcid.org/0000-0003-0593-2598> ;
+    dc:description "The amount of cloudiness or clear sky at a study site." ;
+    skos:prefLabel "Cloud cover" ;
+    iadopt:hasMatrix <http://purl.bioontology.org/ontology/LNC/MTHU054795> ;
+    iadopt:hasObjectOfInterest <https://example.org/ex/sky> ;
+    iadopt:hasProperty <https://example.org/cloudiness> .
+
+<http://purl.bioontology.org/ontology/LNC/MTHU054795> a skos:Concept,
+        iadopt:Entity ;
+    skos:prefLabel "study site" .
+
+<https://example.org/cloudiness> a skos:Concept,
+        iadopt:Property ;
+    skos:prefLabel "cloudiness" .
+
+<https://example.org/ex/sky> a skos:Concept,
+        iadopt:Entity ;
+    skos:prefLabel "sky" .
+

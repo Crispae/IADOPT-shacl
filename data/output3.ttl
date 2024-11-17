@@ -1,0 +1,27 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ns1: <https://w3id.org/iadopt/ont/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example-variable.org/ex/4> a skos:Concept,
+        ns1:Variable ;
+    dc:created "2024-09-22"^^xsd:date ;
+    dc:creator <https://orcid.org/0000-0003-0593-2598> ;
+    dc:description "Identification of height-range above valley floor influenced by boundary layer air/free troposphere." ;
+    skos:prefLabel "Atmospheric boundary layer heights" ;
+    ns1:hasMatrix <http://sweetontology.net/realmAtmo/FreeTroposphere> ;
+    ns1:hasObjectOfInterest <https://example.org/valley_floor> ;
+    ns1:hasProperty <http://sweetontology.net/propSpaceHeight/HeightRange> .
+
+<http://sweetontology.net/propSpaceHeight/HeightRange> a skos:Concept,
+        ns1:Property ;
+    skos:prefLabel "height-range" .
+
+<http://sweetontology.net/realmAtmo/FreeTroposphere> a skos:Concept,
+        ns1:Entity ;
+    skos:prefLabel "Boundary Layer/Free Troposphere" .
+
+<https://example.org/valley_floor> a skos:Concept,
+        ns1:Entity ;
+    skos:prefLabel "valley floor" .
+

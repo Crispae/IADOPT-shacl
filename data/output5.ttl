@@ -1,0 +1,27 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ns1: <https://w3id.org/iadopt/ont/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example-variable.org/ex/17> a skos:Concept,
+        ns1:Variable ;
+    dc:created "2024-09-22"^^xsd:date ;
+    dc:creator <https://orcid.org/0000-0003-0593-2598> ;
+    dc:description "The amount of docosahexaenoic acid relative to dry weight in an individual." ;
+    skos:prefLabel "Docosahexaenoic acid content per dry weight (DHA content/ C22:6 n-3 content)" ;
+    ns1:hasMatrix <http://www.ebi.ac.uk/efo/EFO_0000542> ;
+    ns1:hasObjectOfInterest <http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C68345> ;
+    ns1:hasProperty <http://purl.obolibrary.org/obo/TO_0000633> .
+
+<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C68345> a skos:Concept,
+        ns1:Entity ;
+    skos:prefLabel "docosahexaenoic acid" .
+
+<http://purl.obolibrary.org/obo/TO_0000633> a skos:Concept,
+        ns1:Property ;
+    skos:prefLabel "relative dry weight" .
+
+<http://www.ebi.ac.uk/efo/EFO_0000542> a skos:Concept,
+        ns1:Entity ;
+    skos:prefLabel "individual" .
+
