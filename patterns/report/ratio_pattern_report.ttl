@@ -1,0 +1,27 @@
+@prefix envo: <http://purl.obolibrary.org/obo/ENVO_> .
+@prefix iadopt: <https://w3id.org/iadopt/ont/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:detail [ a sh:ValidationResult ;
+                    sh:focusNode <http://example.org/MediumInstance> ;
+                    sh:resultMessage "Node ex:MediumInstance must conform to one or more shapes in [ sh:class <http://purl.obolibrary.org/obo/ENVO_00010483> ] , [ sh:pattern Literal(\"^medium$\") ]" ;
+                    sh:resultSeverity sh:Violation ;
+                    sh:sourceConstraintComponent sh:OrConstraintComponent ;
+                    sh:sourceShape [ sh:or ( [ sh:class envo:00010483 ] [ sh:pattern "^medium$" ] ) ] ;
+                    sh:value <http://example.org/MediumInstance> ] ;
+            sh:focusNode <http://example.org/RatioVariable> ;
+            sh:resultMessage "Value does not conform to Shape [ sh:or ( [ sh:class <http://purl.obolibrary.org/obo/ENVO_00010483> ] [ sh:pattern Literal(\"^medium$\") ] ) ]. See details for more information." ;
+            sh:resultPath iadopt:hasMatrix ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:NodeConstraintComponent ;
+            sh:sourceShape [ sh:class iadopt:Entity ;
+                    sh:maxCount 1 ;
+                    sh:node [ sh:or ( [ sh:class envo:00010483 ] [ sh:pattern "^medium$" ] ) ] ;
+                    sh:path iadopt:hasMatrix ] ;
+            sh:value <http://example.org/MediumInstance> ] .
+

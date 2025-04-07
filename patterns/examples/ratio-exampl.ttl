@@ -1,0 +1,46 @@
+@prefix iadopt: <https://w3id.org/iadopt/ont/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix envo: <http://purl.obolibrary.org/obo/ENVO_> .
+@prefix ex: <http://example.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+# Ratio Variable 
+ex:RatioVariable
+    a iadopt:Variable ;
+    
+    iadopt:hasProperty ex:PhysicalQuantityProperty ;
+
+    iadopt:hasObjectOfInterest ex:QuantifiableEntityInstance ;
+    
+    iadopt:hasMatrix ex:MediumInstance ;
+
+    iadopt:hasUnit "number/volume" ;
+
+    iadopt:hasConstraint ex:PhysicalQuantityConstraint .
+
+# Property Instance
+ex:PhysicalQuantityProperty
+    a iadopt:Property ;
+    a iadopt:Entity ;
+    a qudt:PhysicalQuantity ;
+    rdfs:label "physical quantity" .
+
+# Object of Interest Instance
+ex:QuantifiableEntityInstance
+    a iadopt:Entity ;
+    a qudt:QuantifiableEntity ;
+    rdfs:label "quantifiable entity" .
+
+# Matrix Instance
+ex:MediumInstance
+    a iadopt:Entity ;
+    a envo:00010483 ; # Medium
+    rdfs:label "medium" .
+
+ex:PhysicalQuantityConstraint
+    a iadopt:Constraint ;
+    iadopt:constrains ex:PhysicalQuantityProperty ;
+    rdfs:label "physical quantity" .

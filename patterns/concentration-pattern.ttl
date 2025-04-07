@@ -1,0 +1,72 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix iadopt: <https://w3id.org/iadopt/ont/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix om: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix envo: <http://purl.obolibrary.org/obo/ENVO_> .
+
+iadopt:ConcentrationVariableShape
+    a sh:NodeShape ;
+    sh:targetClass iadopt:Variable ;
+    
+    # Property constraint
+    sh:property [
+        sh:path iadopt:hasProperty ;
+        sh:class iadopt:Property ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:class om:Concentration ]
+            [ sh:pattern "^concentration$"i ]
+        ) ;
+    ] ;
+
+    # Object of Interest constraint
+    sh:property [
+        sh:path iadopt:hasObjectOfInterest ;
+        sh:class iadopt:Entity ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:class chebi:Substance ]  # CHEBI ontology reference
+            [ sh:pattern "^substance$"i ]
+        ) ;
+    ] ;
+
+    # Matrix constraint
+    sh:property [
+        sh:path iadopt:hasMatrix ;
+        sh:class iadopt:Entity ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:class envo:00010483 ] # environmental material
+            [ sh:pattern "^medium$"i ]
+        ) ;
+    ] ;
+
+    # Unit constraint
+    sh:property [
+        sh:path iadopt:hasUnit ;
+        sh:or (
+            [ sh:class qudt:MassPerVolumeUnit ]
+            [ sh:pattern "^mass/volume$"i ]
+        ) ;
+    ] .
+
+
+
+
+
+
+
+
+
+iadopt:ConcentrationUnitShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path iadopt:hasUnit ;
+        sh:datatype xsd:string ;
+        sh:hasValue "mass/volume" ;
+    ] .
